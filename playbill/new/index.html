@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<head>
+	<script src="/jquery-1.11.2.min.js"></script>
+	<link rel="stylesheet" href="/jquery-ui.css">
+	<script src="/jquery-ui.js"></script>
+	<title>NYCOS-Playbill</title>
+<style>
+body{
+	line-height: 30px;
+	background: #faeab0;
+	font-weight: bold;
+	width: 700px;
+	margin: 0 auto;
+	margin-top: 60px;
+}
+
+a:link, a:visited{
+	color: black;
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:none;
+	/*font-size: 28px;*/
+}
+
+#save{
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+	color:#fff;
+	background: #c71212;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+}
+#save a{color: #fff;}
+
+#info{
+	font-size: 12px;
+	margin-top: 5px;
+}
+
+</style>
+</head>
+
+<body>
+<div id="body">
+Date: (MM/DD/YYYY)<br>
+<input type="date" id="myDate" name="pdate" autofocus="focus"><br>
+
+Time: (24hour)<br>
+<select id="hour">
+	<option value="10">10</option>
+	<option value="11">11</option>
+	<option value="12">12</option>
+	<option value="13">13</option>
+	<option value="14">14</option>
+	<option value="15">15</option>
+	<option value="16">16</option>
+	<option value="17">17</option>
+	<option value="18">18</option>
+	<option value="19">19</option>
+	<option value="20">20</option>
+	<option value="21">21</option>
+	<option value="22">22</option>
+	<option value="23">23</option>
+	<option value="00">0</option>
+	<option value="01">1</option>
+	<option value="02">2</option>
+	<option value="03">3</option>
+	<option value="04">4</option>
+	<option value="05">5</option>
+	<option value="06">6</option>
+	<option value="07">7</option>
+	<option value="08">8</option>
+	<option value="09">9</option>
+</select>
+:
+<select id="min">
+	<option value="00">00</option>
+	<option value="30">30</option>
+</select><br>
+
+<span style="color:red">*</span>Location: (Pleast hit "Enter" after typing.)
+<div class="input_container">
+	<input type="text" id="location" placeholder="Name(ie.Flushing Queens Library)" onclick="get_locations();" style="width:300px;height:22px;font-size:12px;" onkeyup="get_user_input();">
+</div>
+
+<div id="info">
+中文名稱：<input type="text" id="In_cnName" style="width:200px;"><br>
+<span style="color:red">*</span>地址： <input type="text" id="In_address" style="width:500px;"><br>
+備註： <input type="text" id="In_remark" style="width:300px;"><br>
+</div>
+
+<span style="color:red">*</span>Password: (You will need this password when you need to edit this playbill later)<br>
+<input type="password" id="password" style="width:150px;height:20px;"><br>
+<div id="check"><span style="color:red">*</span>Re-enter Password:</div>
+<input type="password" id="re-password" style="width:150px;height:20px;" onkeyup="compare();"><br><br>
+
+<div id="save">
+	<a href="javascript:process();">保存/下一步</a></div>
+
+<div id="alert" style="color:red;"></div>
+</div>
+<script>
+function check_login(){
+	var xhttp;
+	if (window.XMLHttpRequest) {
+	    // code for modern browsers
+	    xhttp = new XMLHttpRequest();
+	    } else {
+	    // code for IE6, IE5
+	    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			if (xhttp.responseText=="0") {
+				document.getElementById("body").innerHTML='Password:<br><input type="password" id="login" autofocus="focus" style="width:150px;height:20px;" onkeydown="if(event.keyCode==13){check_input();}"><br><input type="submit" name="userInput" value="确定" onclick="check_input();" >';
+			};
+		}
+	};
+	xhttp.open("GET", "/cgi-bin/login.php?input=", true);
+	xhttp.send();
+}
+check_login();
+function check_input(){
+	var input=document.getElementById("login").value;
+	var xhttp;
+	if (window.XMLHttpRequest) {
+	    // code for modern browsers
+	    xhttp = new XMLHttpRequest();
+	    } else {
+	    // code for IE6, IE5
+	    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			var R=xhttp.responseText;
+			if (R=="2"){
+				window.location.href = "/playbill/new";
+			}
+			else{
+				alert("Wrong password!");
+				window.location.href = "/playbill/new";
+			}
+		}
+	}
+	xhttp.open("GET", "/cgi-bin/login.php?input="+input, true);
+	xhttp.send();
+}
+var flag=0;
+var locations=[];
+function get_locations(){
+	var xhttp;
+	if (window.XMLHttpRequest) {
+	    // code for modern browsers
+	    xhttp = new XMLHttpRequest();
+	    } else {
+	    // code for IE6, IE5
+	    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			var str=xhttp.responseText;
+			locations = (str.replace(/"/g,"")).split('|');
+			$(function() {
+				$( "#location" ).autocomplete({
+					source: locations
+				});
+			});
+		}
+	};
+	xhttp.open("GET", "/cgi-bin/list_location.php", true);
+	xhttp.send();
+}
+date = new Date();
+var month= (date.getMonth()+1);
+if (month<10) {month="0"+month};
+var x=date.getFullYear()+'-' + month+ '-'+date.getDate();
+document.getElementById("myDate").min = x;
+document.getElementById("myDate").defaultValue = x;
+var get_user_input=function(){
+	var result=[];
+	var input=document.getElementById("location").value;
+	if(locations.indexOf(input)>-1){
+		flag=1;
+	}
+	else{flag=0;}
+	if (input=="") {return;}
+	else {
+		document.getElementById("In_cnName").value='';
+		document.getElementById("In_address").value='';
+		document.getElementById("In_remark").value='';
+		if (flag===1) {
+			var xhttp;
+			if (window.XMLHttpRequest) {
+			    // code for modern browsers
+			    xhttp = new XMLHttpRequest();
+			    } else {
+			    // code for IE6, IE5
+			    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xhttp.onreadystatechange = function() {
+				if (xhttp.readyState == 4 && xhttp.status == 200) {
+					var str=xhttp.responseText;
+					result = (str.replace(/"/g,"")).split('|');
+					document.getElementById("In_cnName").value= result[0];
+					document.getElementById("In_address").value=result[1];
+					document.getElementById("In_remark").value=result[2];
+				}
+			};
+			xhttp.open("GET", "/cgi-bin/location_info.php?name="+input, true);
+			xhttp.send();
+		}
+		else{
+			document.getElementById("In_cnName").placeholder= "i.e.法拉盛圖書館禮堂";
+			document.getElementById("In_address").placeholder="Input an address";
+			document.getElementById("In_remark").placeholder="Remarks if any";
+		}
+	}
+}
+
+var compare=function(){
+	var password=document.getElementById("password").value;
+	var re_password=document.getElementById("re-password").value;
+	if (password===re_password) {
+		document.getElementById("check").innerHTML="Re-enter Password: <span style='color:#00bb33; font-weight:bold'>OK</span>";
+		return 1;
+	}
+	else{
+		document.getElementById("check").innerHTML="Re-enter Password: <span style='color:red; font-weight:bold'>Must be same as above!</span>";
+		return 0;
+	}
+}
+
+var process=function(){
+	if (document.getElementById("location").value==="" || document.getElementById("In_address").value===''||document.getElementById("password").value===''|| compare()===0) {
+		document.getElementById("alert").innerHTML="ERROR! Required field incorrect!";
+		return 0;
+	}
+
+	var xhttp;
+	if (window.XMLHttpRequest) {
+	    // code for modern browsers
+	    xhttp = new XMLHttpRequest();
+	    } else {
+	    // code for IE6, IE5
+	    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			var time=document.getElementById("myDate").value+" "+document.getElementById("hour").value+":"+document.getElementById("min").value+":00";
+			var str=xhttp.responseText;
+			result = (str.replace(/"/g,"")).split('|');
+			if (result.indexOf(time)>-1){
+				document.getElementById("alert").innerHTML="ERROR! Date&Time existed!";
+				return 0 ;
+			}
+			else{
+				document.getElementById("alert").innerHTML="";
+				var time=document.getElementById("myDate").value+" "+document.getElementById("hour").value+":"+document.getElementById("min").value+":00";
+				var location_name=document.getElementById("location").value;
+				var location_name_CN=document.getElementById("In_cnName").value;
+				var location_address=document.getElementById("In_address").value;
+				var location_remark=document.getElementById("In_remark").value;
+				var password=document.getElementById("password").value;
+				var xhttp1;
+				if (window.XMLHttpRequest) {
+				    // code for modern browsers
+				    xhttp1 = new XMLHttpRequest();
+				    } else {
+				    // code for IE6, IE5
+				    xhttp1 = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xhttp1.onreadystatechange = function() {
+					if (xhttp1.readyState == 4 && xhttp1.status == 200) {
+						window.location.href = "/playbill/new/new_program.html?0";
+					}
+				};
+				xhttp1.open("GET", "/cgi-bin/create_performance.php?time="+time+"&name="+location_name+"&name_CN="+location_name_CN+"&address="+location_address+"&remark="+location_remark+"&password="+password, true);
+				xhttp1.send();
+			}
+		}
+	};
+	xhttp.open("GET", "/cgi-bin/list_performance_datetime.php", true);
+	xhttp.send();
+}
+</script>
+</body>
+
+
+

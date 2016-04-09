@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<head>
+	<title>NYCOS-Playbill</title>
+
+	<script>
+	function get_performances(){
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4 && xhttp.status == 200) {
+				document.getElementById("list").innerHTML = xhttp.responseText;
+			}
+		};
+		xhttp.open("GET", "/cgi-bin/list_performance.php", true);
+		xhttp.send();
+	}
+	get_performances();
+	</script>
+
+
+<style>
+body{
+	width: 600px;
+	margin: 0 auto;
+	background: #faeab0;
+	font-weight: bold;
+}
+
+h1{
+	text-align: center;
+}
+
+a:link, a:visited{
+	color: #000;
+	text-decoration:none;
+}
+a:hover{
+	color:#d41c25;
+	text-decoration:none;
+	/*font-size: 28px;*/
+}
+
+#new{
+	width: 100px;
+	text-align: center;
+	color:#fff;
+	background: #c71212;
+	display: inline-block;
+	height: 35px;
+	line-height: 35px;
+}
+#new a{color: #fff;}
+</style>
+</head>
+
+<body>
+<h1><img src="/1.png" width="700"></h1>
+	<div id="new">
+	<a href="new">新 建</a><br><br></div>
+	<br>Existing Playbills（点击日期查看详情）<br>
+	———————————————————————
+	<br>
+	<div id="list"></div>
+</body>
+
+
+

@@ -1,0 +1,24 @@
+body{
+	line-height: 32px;
+	background: #faeab0;
+	font-weight: bold;
+	width: 700px;
+	margin: 0 auto;
+	margin-top: 20px;
+	font-family: 宋体;
+}
+
+.new{
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+	color:#fff;
+	background: #c71212;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+}
+.new a{
+	text-decoration:none;
+	color: #fff;
+}
