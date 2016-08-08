@@ -10,20 +10,20 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
 } 
-$input = '"'.$_REQUEST["name"].'"';
+$funct = $_REQUEST["funct"];
+
 $conn->query("SET NAMES utf8"); 
-$sql = "SELECT DISTINCT Part_CN FROM Program where Name_CN=".$input;
+$sql = "SELECT * FROM Function where Name_CN='".$funct."'";
 $conn->query("SET NAMES utf8"); 
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
 	while($row = $result->fetch_assoc()) {
-        echo json_encode($row["Part_CN"]."|",JSON_UNESCAPED_UNICODE);
-        //"<a href=".'"'."performance?datetime=".str_replace(" ","&",$row["Date_time"]).'">'.$row["Date_time"]."</a>　　".$row["Location"]."<br>";
+        echo json_encode($row["Name"]."|",JSON_UNESCAPED_UNICODE);
     }
 } else {
-	//echo json_encode("0");
+	echo json_encode("0");
 }
 $conn->close();
 

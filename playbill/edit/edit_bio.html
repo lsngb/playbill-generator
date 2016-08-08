@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<head>
+	<title id="title"></title>
+	<script src="/jquery-1.11.2.min.js"></script>
+	<script src="/jquery-ui.js"></script>
+	<link rel="stylesheet" href="/jquery-ui.css">
+	<link rel="stylesheet" href="new.css">
+</head>
+
+<body>
+<div id="body">
+<div id="program_info">
+<span style="font-size: 20px;">請輸入劇名以添加、修改或刪除劇目信息：</span><br>
+(Pleast hit "Enter" after typing.)<br>
+
+<div id="r0_performer0">
+◆角色1：演員1
+<br>
+<span style="color:red">*</span>姓名(@Nickname):
+<input type="text" id="r0_performer0_Name" placeholder=" i.e. 呂維忠" style="height:20px;" onclick="get_performer('0|0');" onkeyup="in_performer('0|0')">
+must split by "@"
+<br>
+<span style="color:red">*</span>Name:
+<input type="text" id="r0_performer0_EN_name" style="height:20px;">
+<form id="r0_performer0_Gender" style="display: inline;padding-left:40px;">
+	<span style="color:red">*</span>Gender:
+	<input type="radio" name="type" id="r0_performer0_M" value="M" checked> M
+	<input type="radio" name="type" id="r0_performer0_F" value="F"> F
+</form>
+<br>
+<form id="r0_performer0_NYCOS" style="display: inline;">
+	<span style="color:red">*</span>NYCOS:
+	<input type="radio" name="type" value="Y" id="r0_performer0_Y_NYCOS" checked onclick="is_NYCOS('0|0|1');"> Y
+	<input type="radio" name="type" value="N" id="r0_performer0_N_NYCOS" onclick="is_NYCOS('0|0|0');"> N
+</form>
+<span style="color:red;padding-left:60px;">*</span>Youth: 
+<select id="r0_performer0_Youth" style="height:20px;">
+	<option value="Y">Y</option>
+	<option value="N">N</option>
+</select>
+<br>
+<span style="color:red">*</span>演員簡介: 
+<br>
+<textarea wrap="on" id="r0_performer0_Bio" style="height:60px;width:600px;margin-bottom: -5px;"></textarea><br>
+<span style="color:red">*</span>Bio: 
+<br>
+<textarea wrap="on" id="r0_performer0_EN_bio" style="height:130px;width:600px;"></textarea>
+<br>
+<span style="display: inline-block;width: 60px;">Tel:</span>
+<input type="text" placeholder=" i.e. XXX-XXX-XXXX" id="r0_performer0_Tel" style="height:20px;">
+<br>
+<span style="display: inline-block;width: 60px;">Email:</span>
+<input type="text" placeholder=" i.e. XX@XXX.XXX" id="r0_performer0_Email" style="height:20px;">
+<br>
+<span style="display: inline-block;width: 60px;">Remark:</span>
+<input type="text" id="r0_performer0_Remark" style="height:20px;">
+</div><!--r0_performer0-->
+
+<div id="alert1" style="color:red;"></div>
+<div id="alert2" style="color:red; margin-bottom: 50px;"></div>
+
+信息添加/修改完成
+<br>
+<div class="new" id="next" >
+	<a href="javascript:process();">提交</a>
+</div>
+<div id="alert2" style="color:red; margin-bottom: 50px;"></div>
+</div><!--body-->
+<script type="text/javascript" src="edit_bio.js"></script>
+</body>

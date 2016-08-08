@@ -1,8 +1,8 @@
-var string=window.location.search.substring(1);
-var array=string.split('&');
-var program_num = new Number(array[0]);
+var string="&"+window.location.search.substring(1);
+var array=string.split('&'); 
 var time=array[1]+' '+array[2];
-document.getElementById("title").innerHTML="添加劇目"+(program_num+1);
+
+document.getElementById("title").innerHTML="修改劇目";
 var check=function(){
 	var xhttp;
 	if (window.XMLHttpRequest) {
@@ -15,19 +15,17 @@ var check=function(){
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
 			var str=xhttp.responseText;
-			var result = (str.replace(/"/g,"")).split('|');
-			if (result[0]==1 && result[1]==program_num && result[2]==time) {return 0;}
+			if (str=="1") {return 0;}
 			else{
-				alert("请勿通过输入网址的方式访问本页面！将跳转至主页。");
-				window.location.href = "/playbill";
+				alert("請先登錄！");
+				window.location.href = "/playbill/edit?"+array[1]+"&"+array[2];
 			}
 		}
 	};
-	xhttp.open("GET", "/cgi-bin/check_new.php", true);
+	xhttp.open("GET", "/cgi-bin/login_performance.php?input="+"&time="+time, true);
 	xhttp.send();
 }
 check();
-document.getElementById("p_num").innerHTML="劇目"+(program_num+1);
 var programs=[];
 var get_program=function(){
 	var xhttp;
@@ -514,7 +512,7 @@ var send_back=function(sender){
 		}
 	}
 
-	if (sender=="P") {
+	if (sender=="N") {
 		$.ajax({
 			method: "POST",
 			url: "/cgi-bin/create_program.php",
@@ -545,74 +543,29 @@ var send_back=function(sender){
 				Remark:Remark
 			},
 			success: function(data) {
-				program_num++;
-				window.location.href = "/playbill/new/new_program.html?"+program_num+"&"+array[1]+'&'+array[2];
-	    	}
-		})
-	}
-	else if (sender=="N") {
-		$.ajax({
-			method: "POST",
-			url: "/cgi-bin/create_program.php",
-			data: {
-				role_id:role_id,
-				performer_id:performer_id,
-				CN_Name:CN_Name,
-				Name:Name,
-				CN_Part:CN_Part,
-				Part:Part,
-				Program_type:Program_type,
-				CN_Synopsis:CN_Synopsis,
-				Synopsis:Synopsis,
-				Role_Name_CN:Role_Name_CN,
-				Role_Name:Role_Name,
-				Hangdang:Hangdang,
-				Role_type:Role_type,
-				Performer_Name_CN:Performer_Name_CN,
-				Performer_Nickname:Performer_Nickname,
-				Performer_Name:Performer_Name,
-				Gender:Gender,
-				NYCOS:NYCOS,
-				Youth:Youth,
-				Bios_CN:Bios_CN,
-				Bios:Bios,
-				Tel:Tel,
-				Email:Email,
-				Remark:Remark
-			},
-			success: function(data) {
-				window.location.href = "/playbill/new/new_orchestra.html?"+(program_num+1)+"&"+array[1]+'&'+array[2];
+				window.location.href = "playbill.html?"+array[1]+'&'+array[2];
 	    	}
 		})
 	};
-}
-
-var add_program=function(){
-	if(check_filled()===0){
-		document.getElementById("alert1").innerHTML="ERROR! Required field incomplete!";
-		document.getElementById("alert2").innerHTML="";
-		return 0;
-	}
-	else{
-		document.getElementById("alert1").innerHTML="";
-		document.getElementById("alert2").innerHTML="";
-	}
-	send_back('P');
 }
 
 var del_program=function(){
-	if (program_num==0) {
-		alert("At least one program per performance!");
-		return 0;
-	};
-	$.ajax({
-		method: "POST",
-		url: "/cgi-bin/delete_program.php",
-		data: {
-			CN_Name:CN_Name,
-			CN_Part:CN_Part,
-		}
-	})
+	var r = confirm("Are you sure to DELETE this program?");
+	if (r == true) {
+	    $.ajax({
+			method: "POST",
+			url: "/cgi-bin/delete_program.php",
+			data: {
+				CN_Name:CN_Name,
+				CN_Part:CN_Part,
+			},
+			success: function(data) {
+				window.location.href = "playbill.html?"+array[1]+'&'+array[2];
+	    	}
+		})
+	} else {
+	    
+	}
 }
 
 var process=function(){

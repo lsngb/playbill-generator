@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<head>
+	<title id="title"></title>
+	<script src="/jquery-1.11.2.min.js"></script>
+	<script src="/jquery-ui.js"></script>
+	<link rel="stylesheet" href="/jquery-ui.css">
+	<link rel="stylesheet" href="new.css">
+</head>
+
+<body>
+<div id="body">
+<div id="program_info">
+<span style="font-size: 20px;">請輸入劇名以添加、修改或刪除劇目信息：</span><br>
+(Pleast hit "Enter" after typing.)
+<br>
+<div id="p_num"></div>
+<span style="display: inline-block;width: 120px;"><span style="color:red">*</span>劇目名稱: </span>
+<input type="text" autofocus="focus" id="Name" placeholder=" i.e. 捉放曹" style="height:20px;" onclick="get_program();" onkeyup="in_program();"><br>
+<span style="display: inline-block;width: 120px;"><span style="color:red">*</span>Program Name</span>
+<input type="text" id="EN_name" style="height:20px;"><br>
+
+<span style="display: inline-block;width: 120px;"><span style="color:red">*</span>折子/部分: </span>
+<input type="text" id="Part" placeholder=" i.e. 行路宿店/全本" style="height:20px;" onclick="get_part();" onkeyup="in_part();get_synopsis();"> (Use "NULL" if none)<br>
+<span style="display: inline-block;width: 120px;">Program Part</span>
+<input type="text" id="EN_part" style="height:20px;"><br>
+
+<form id="type" >
+	<span style="color:red">*</span>
+	<input type="radio" name="type" id="cai" checked onclick="get_radio();"> 彩唱
+	<input type="radio" name="type" id="qing" onclick="get_radio();"> 清唱
+</form>
+<br>
+<span style="color:red">*</span>劇目簡介: (Use "NULL" if none)<br>
+<textarea wrap="on" id="Synopsis" style="height:100px;width:600px;margin-bottom: -5px;"></textarea><br>
+<span style="color:red">*</span>Synopsis: (Use "NULL" if none)<br>
+<textarea wrap="on" id="EN_synopsis" style="height:200px;width:600px;"></textarea><br>
+
+信息添加/修改完成
+<br>
+<div class="new" id="next" >
+	<a href="javascript:process();">提交</a>
+</div>
+<div id="alert2" style="color:red; margin-bottom: 50px;"></div>
+</div><!--body-->
+<script type="text/javascript" src="edit_synopsis.js"></script>
+</body>

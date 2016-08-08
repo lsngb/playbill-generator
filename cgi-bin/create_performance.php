@@ -14,6 +14,7 @@ if ($conn->connect_error) {
 
 $_SESSION["datetime"] = $_REQUEST["time"];
 $_SESSION["order"] = 0;
+$_SESSION["time"]=$_REQUEST["time"];
 
 
 $time='"'.$_REQUEST["time"].'"';
@@ -23,7 +24,9 @@ $address='"'.$_REQUEST["address"].'"';
 $remark='"'.$_REQUEST["remark"].'"';
 $password ='"'. $_REQUEST["password"].'"';
 
-$sql = "INSERT INTO `Performance`(`Date_time`, `Location`, `Password`, `Poster`, `Playbill`) VALUES ($time,$name,$password,null,null)";
+
+
+$sql = "INSERT INTO `Performance`(`Date_time`, `Location`, `Password`) VALUES ($time,$name,$password)";
 if ($conn->query($sql) === TRUE) {
     //echo "New record created successfully";
 } else {

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<head>
+	<title id="title">請輸入樂器名稱以添加、修改或刪除工作人員信息</title>
+	<script src="/jquery-1.11.2.min.js"></script>
+	<script src="/jquery-ui.js"></script>
+	<link rel="stylesheet" href="/jquery-ui.css">
+	<link rel="stylesheet" href="new.css">
+</head>
+
+<body>
+
+<div id="body">
+<span style="font-size: 22px;">工作人員信息：</span><br>
+(Pleast hit "Enter" after typing.)<br>
+<div id="funct_info">
+<div id="funct0">
+<span style="display: inline-block;width: 80px;"><span style="color:red">*</span>職能: </span>
+<input type="text" autofocus="focus" id="funct0_Name" placeholder=" i.e. 音響" style="height:20px;" onclick="get_funct('0');" onkeyup="in_funct('0');">
+<span style="display: inline-block;width: 100px; padding-left:50px;"><span style="color:red">*</span>Function</span>
+<input type="text" id="funct0_EN_name" style="height:20px;">
+<br>
+<div class="del" id="del_func">
+	<a href="javascript:del_funct();">刪除</a>
+</div><br>
+------------------------------------------
+<div id="f0_staff_info">
+<div id="f0_staff0">
+◆人員1
+<br>
+<span style="display: inline-block;"><span style="color:red">*</span>人員:(Name@Nickname) </span>
+<input type="text" id="f0_staff0_Name" placeholder=" i.e. 張曉茹" style="height:20px;" onclick="get_staff('0|0');" onkeyup="in_staff('0|0');">　must split by "@"<br>
+<span style="display: inline-block;width: 100px;argin-bottom:15px;"><span style="color:red">*</span>Staff</span>
+<input type="text" id="f0_staff0_EN_name" style="height:20px;"><br>
+</div><!-- f0_staff0 -->
+<div class="new" id="funct0_new_staff" style="margin-top:10px;">
+	<a href="javascript:add_staff('0');">+人　員</a>
+</div>
+<div class="del" id="funct0_del_staff">
+	<a href="javascript:del_staff('0');">-人　員</a>
+</div>
+<br>
+------------------------------------------
+</div><!-- f0_staff_info -->
+</div><!-- funct0 -->
+</div><!--funct_info-->
+</div><!--program_info-->
+信息添加/修改完成
+<br>
+<div class="new" id="next" >
+	<a href="javascript:process();">提交</a>
+</div>
+<div id="alert" style="color:red; margin-bottom: 50px;"></div>
+</div><!--body-->
+
+<script type="text/javascript" src="edit_staff.js"></script>
+</body>

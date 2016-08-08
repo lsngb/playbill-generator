@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<head>
+	<title id="title">請輸入樂器名稱以添加、修改或刪除樂隊信息</title>
+	<script src="/jquery-1.11.2.min.js"></script>
+	<script src="/jquery-ui.js"></script>
+	<link rel="stylesheet" href="/jquery-ui.css">
+	<link rel="stylesheet" href="new.css">
+</head>
+
+<body>
+
+<div id="body">
+<span style="font-size: 22px;">樂隊信息：</span><br>
+(Pleast hit "Enter" after typing.)<br>
+<div id="instrument_info">
+<div id="instrument0">
+<span style="display: inline-block;width: 80px;"><span style="color:red">*</span>樂器: </span>
+<input type="text" autofocus="focus" id="instrument0_Name" placeholder=" i.e. 京胡" style="height:20px;" onclick="get_instrument('0');" onkeyup="in_instrument('0');">
+<span style="display: inline-block;width: 100px; padding-left:50px;"><span style="color:red">*</span>Instrument</span>
+<input type="text" id="instrument0_EN_name" style="height:20px;"><br>
+<div class="del" id="del_instrument">
+	<a href="javascript:del_instrumrnt();">刪除</a>
+</div>
+<br>
+------------------------------------------
+<div id="i0_player_info">
+<div id="i0_player0">
+◆演奏者1
+<br>
+<span style="display: inline-block;"><span style="color:red">*</span>演奏者:(Name@Nickname) </span>
+<input type="text" id="i0_player0_Name" placeholder=" i.e. 曹祥生" style="height:20px;" onclick="get_player('0|0');" onkeyup="in_player('0|0');">　must split by "@"<br>
+<span style="display: inline-block;width: 100px;argin-bottom:15px;"><span style="color:red">*</span>Player</span>
+<input type="text" id="i0_player0_EN_name" style="height:20px;"><br>
+</div><!-- i0_player0 -->
+<div class="new" id="instrument0_new_player" style="margin-top:10px;">
+	<a href="javascript:add_player('0');">+演奏者</a>
+</div>
+<div class="del" id="instrument0_del_player">
+	<a href="javascript:del_player('0');">-演奏者</a>
+</div>
+<br>
+------------------------------------------
+</div><!-- i0_player_info -->
+</div><!-- instrument0 -->
+</div><!--instrument_info-->
+</div><!--program_info-->
+或，信息添加/修改完成
+<br>
+<div class="new" id="next" >
+	<a href="javascript:process();">提交</a>
+</div>
+<div id="alert" style="color:red; margin-bottom: 50px;"></div>
+</div><!--body-->
+
+<script type="text/javascript" src="edit_orchestra.js"></script>
+</body>

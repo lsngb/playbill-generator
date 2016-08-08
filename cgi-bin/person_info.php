@@ -20,6 +20,7 @@ if ($nickname=="") {
 else{
 	$sql = "SELECT * FROM Person where Name_CN='".$name."'and Nickname='".$nickname."'";
 }
+$conn->query("SET NAMES utf8"); 
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

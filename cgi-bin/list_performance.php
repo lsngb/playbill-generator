@@ -12,12 +12,12 @@ if ($conn->connect_error) {
 } 
 
 $sql = "SELECT Date_time, Location FROM Performance order by Date_time DESC";
+$conn->query("SET NAMES utf8"); 
 $result = $conn->query($sql);
-
 if ($result->num_rows > 0) {
     // output data of each row
 	while($row = $result->fetch_assoc()) {
-        echo"<a href=".'"'."performance?datetime=".str_replace(" ","&",$row["Date_time"]).'">'.$row["Date_time"]."</a>　　".$row["Location"]."<br>";
+        echo"<a href=".'"'."/playbill/playbill.html?0&".str_replace(" ","&",$row["Date_time"]).'">'.$row["Date_time"]."</a>　　".$row["Location"]."<br>";
     }
 } else {
 	echo "0 results";

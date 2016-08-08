@@ -15,6 +15,7 @@ $part=$_REQUEST["part"];
 
 $conn->query("SET NAMES utf8"); 
 $sql = "SELECT P.ID, R.Name_CN FROM Program P, Role R where P.Part_CN='".$part."'and P.Name_CN='".$program."' and P.ID=R.PID";
+$conn->query("SET NAMES utf8"); 
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

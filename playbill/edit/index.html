@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<head>
+<title>NYCOS-Playbill</title>
+
+<script>
+var string=window.location.search.substring(1);
+var array=string.split('&');
+var time=array[0]+' '+array[1];
+function get_performances(){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			document.getElementById("list").innerHTML = xhttp.responseText;
+		}
+	};
+	xhttp.open("GET", "/cgi-bin/performance_info.php?time="+time, true);
+	xhttp.send();
+}
+get_performances();
+</script>
+
+
+<style>
+body{
+	width: 600px;
+	margin: 0 auto;
+	background: #faeab0;
+	font-weight: bold;
+	text-align: left;
+}
+
+a:link, a:visited{
+	color: #000;
+	text-decoration:none;
+}
+a:hover{
+	color:#d41c25;
+	text-decoration:none;
+	/*font-size: 28px;*/
+}
+
+#new{
+	width: 70px;
+	text-align: center;
+	color:#fff;
+	background: #c71212;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+}
+#new a{color: #fff;}
+#list{
+	width: 600px;
+	height: 180px;
+	margin-top: 100px;
+}
+#xxx{
+	width: 600px;
+	margin: 0 auto;
+}
+#alert{
+	color: red;
+	margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+	<div id="list"></div>
+	<div id="xxx">
+	Enter password for this performance<br>to edit playbill:<br><br><input type="password" id="login" autofocus="focus" style="width:150px;height:20px;"onkeydown="if(event.keyCode==13){check_input();}">
+	<div id="new">
+		<a href="javascript:check_input();">确 定</a>
+	</div>
+	<div id="alert"></div>
+</div>
+<script>
+function check_input(){
+	var input=(document.getElementById("login").value).replace(/'/g, "＇").replace(/"/g, "＂");
+	var xhttp;
+	if (window.XMLHttpRequest) {
+	    // code for modern browsers
+	    xhttp = new XMLHttpRequest();
+	    } else {
+	    // code for IE6, IE5
+	    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			var R=xhttp.responseText;
+			//alert(R);
+			if (R=='1'){
+				window.location.href = "/playbill/edit/playbill.html?"+string;
+			}
+			else{
+				document.getElementById("alert").innerHTML="Wrong Password!";
+			}
+		}
+	}
+	xhttp.open("GET", "/cgi-bin/login_performance.php?input="+input+"&time="+time, true);
+	xhttp.send();
+}
+</script>
+</body>
+
+
+

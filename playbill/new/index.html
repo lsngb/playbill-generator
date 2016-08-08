@@ -126,7 +126,7 @@ function check_login(){
 }
 check_login();
 function check_input(){
-	var input=document.getElementById("login").value;
+	var input=(document.getElementById("login").value).replace(/'/g, "＇").replace(/"/g, "＂");
 	var xhttp;
 	if (window.XMLHttpRequest) {
 	    // code for modern browsers
@@ -183,7 +183,7 @@ document.getElementById("myDate").min = x;
 document.getElementById("myDate").defaultValue = x;
 var get_user_input=function(){
 	var result=[];
-	var input=document.getElementById("location").value;
+	var input=(document.getElementById("location").value).replace(/'/g, "＇").replace(/"/g, "＂");
 	if(locations.indexOf(input)>-1){
 		flag=1;
 	}
@@ -223,8 +223,8 @@ var get_user_input=function(){
 }
 
 var compare=function(){
-	var password=document.getElementById("password").value;
-	var re_password=document.getElementById("re-password").value;
+	var password=(document.getElementById("password").value).replace(/'/g, "＇").replace(/"/g, "＂");
+	var re_password=(document.getElementById("re-password").value).replace(/'/g, "＇").replace(/"/g, "＂");
 	if (password===re_password) {
 		document.getElementById("check").innerHTML="Re-enter Password: <span style='color:#00bb33; font-weight:bold'>OK</span>";
 		return 1;
@@ -261,11 +261,11 @@ var process=function(){
 			else{
 				document.getElementById("alert").innerHTML="";
 				var time=document.getElementById("myDate").value+" "+document.getElementById("hour").value+":"+document.getElementById("min").value+":00";
-				var location_name=document.getElementById("location").value;
-				var location_name_CN=document.getElementById("In_cnName").value;
-				var location_address=document.getElementById("In_address").value;
-				var location_remark=document.getElementById("In_remark").value;
-				var password=document.getElementById("password").value;
+				var location_name=(document.getElementById("location").value).replace(/'/g, "＇").replace(/"/g, "＂");
+				var location_name_CN=(document.getElementById("In_cnName").value).replace(/'/g, "＇").replace(/"/g, "＂");
+				var location_address=(document.getElementById("In_address").value).replace(/'/g, "＇").replace(/"/g, "＂");
+				var location_remark=(document.getElementById("In_remark").value).replace(/'/g, "＇").replace(/"/g, "＂");
+				var password=(document.getElementById("password").value).replace(/'/g, "＇").replace(/"/g, "＂");
 				var xhttp1;
 				if (window.XMLHttpRequest) {
 				    // code for modern browsers
@@ -276,7 +276,8 @@ var process=function(){
 				}
 				xhttp1.onreadystatechange = function() {
 					if (xhttp1.readyState == 4 && xhttp1.status == 200) {
-						window.location.href = "/playbill/new/new_program.html?0";
+						var time=document.getElementById("myDate").value+"&"+document.getElementById("hour").value+":"+document.getElementById("min").value+":00";
+						window.location.href = "/playbill/new/new_program.html?0&"+time;
 					}
 				};
 				xhttp1.open("GET", "/cgi-bin/create_performance.php?time="+time+"&name="+location_name+"&name_CN="+location_name_CN+"&address="+location_address+"&remark="+location_remark+"&password="+password, true);

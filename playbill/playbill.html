@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0"> 
+
+<head>
+	<title id="title">節目單預覽</title>
+<style>
+body{
+	width: 900px;
+	margin: 0 auto;
+	/*background: #faeab0;*/
+	font-family: 宋体;
+	font-size: 110%;
+}
+#body{
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 40px; /* Firefox */
+    column-gap: 40px;
+    margin: 20px 0px 80px 0px;
+}
+h1{
+	margin-bottom: 10px;
+	font-size: 130%;
+}
+#remark{
+	margin-top: 15px;
+	font-size: 90%;
+}
+h1, #remark, .edit{
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+h2{
+	margin: 0.3em 0em 0.1em 0em;
+	border:none;
+	border-bottom:solid windowtext 1.0pt;
+	padding:0in 0in 1.0pt 0in;
+	font-family:方正行楷_GBK;
+}
+h3{
+	margin: 0.3em 0em -0.2em 0em;
+	font-family:方正行楷_GBK;
+	font-size:100%;
+}
+p{
+	font-family:楷体;
+	margin: 0.1em;
+}
+.edit{
+	margin-left:10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+	color:#fff;
+	background: #555;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+}
+.edit a{
+	text-decoration:none;
+	color: #fff;
+}
+
+@media only screen and (max-device-width: 650px) {
+	body{
+	width: 320px;}
+	#body{
+		-webkit-column-count: 1; /* Chrome, Safari, Opera */
+	    -moz-column-count: 1; /* Firefox */
+	    column-count: 1;
+	}
+}
+</style>
+</head>
+
+<body>
+	<h1>節目單預覽</h1>
+	<div class="edit">
+		<a href="javascript:edit();">編輯/刪除</a>
+	</div>
+	<div id="remark">請在電腦中安裝字體“方正行楷_GBK”和“楷体”以正常顯示相應字體。</div>
+	<div id= "body"></div>
+<script>
+var string=window.location.search.substring(1);
+var array=string.split('&');
+var order = new Number(array[0]);
+var time=array[1]+' '+array[2];
+
+var show=function(){
+	var xhttp;
+	if (window.XMLHttpRequest) {
+	    // code for modern browsers
+	    xhttp = new XMLHttpRequest();
+	    } else {
+	    // code for IE6, IE5
+	    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			var str=xhttp.responseText;
+			document.getElementById("body").innerHTML="";
+			document.getElementById("body").innerHTML=str;
+		}
+	};
+	xhttp.open("GET", "/cgi-bin/preview_program.php", true);
+	xhttp.send();
+}
+
+var check=function(){
+	var xhttp;
+	if (window.XMLHttpRequest) {
+	    // code for modern browsers
+	    xhttp = new XMLHttpRequest();
+	    } else {
+	    // code for IE6, IE5
+	    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			var str=xhttp.responseText;
+			show();
+		}
+	};
+	xhttp.open("GET", "/cgi-bin/view_playbill.php?time="+time, true);
+	xhttp.send();
+}
+check();
+
+var edit=function(){
+	window.location.href = "/playbill/edit?"+array[1]+'&'+array[2];
+}
+
+
+
+</script>
+</body>
