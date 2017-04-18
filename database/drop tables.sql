@@ -1,0 +1,1 @@
+drop table Person, Program, Performance, OperaType, Organization, Instrument, Program_performed, Role, Performer, Orchestra, Staff;

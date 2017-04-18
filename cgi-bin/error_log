@@ -1,0 +1,52 @@
+[28-Oct-2016 15:23:48 America/Denver] PHP Notice:  Undefined index: order in /home1/messyxin/public_html/nycos/cgi-bin/create_program.php on line 17
+[28-Oct-2016 16:06:14 America/Denver] PHP Notice:  Undefined variable: i in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[28-Oct-2016 16:06:14 America/Denver] PHP Notice:  Undefined index:  in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[28-Oct-2016 16:18:34 America/Denver] PHP Notice:  Undefined variable: i in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[28-Oct-2016 16:18:34 America/Denver] PHP Notice:  Undefined index:  in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[28-Oct-2016 16:19:19 America/Denver] PHP Notice:  Undefined variable: i in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[28-Oct-2016 16:19:19 America/Denver] PHP Notice:  Undefined index:  in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[28-Oct-2016 16:19:40 America/Denver] PHP Notice:  Undefined variable: i in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[28-Oct-2016 16:19:40 America/Denver] PHP Notice:  Undefined index:  in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[28-Oct-2016 16:22:45 America/Denver] PHP Notice:  Undefined variable: i in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[28-Oct-2016 16:22:45 America/Denver] PHP Notice:  Undefined index:  in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[28-Oct-2016 16:23:18 America/Denver] PHP Notice:  Undefined variable: i in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[28-Oct-2016 16:23:18 America/Denver] PHP Notice:  Undefined index:  in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[28-Oct-2016 17:14:07 America/Denver] PHP Notice:  Undefined variable: i in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[28-Oct-2016 17:14:07 America/Denver] PHP Notice:  Undefined index:  in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[28-Oct-2016 17:14:45 America/Denver] PHP Notice:  Undefined variable: i in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[28-Oct-2016 17:14:45 America/Denver] PHP Notice:  Undefined index:  in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[29-Oct-2016 19:27:29 America/Denver] PHP Notice:  Undefined variable: i in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[29-Oct-2016 19:27:29 America/Denver] PHP Notice:  Undefined index:  in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[30-Oct-2016 18:24:46 America/Denver] PHP Notice:  Undefined variable: i in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[30-Oct-2016 18:24:46 America/Denver] PHP Notice:  Undefined index:  in /home1/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 11:14:54 America/Denver] PHP Notice:  Undefined index: time in /home2/messyxin/public_html/nycos/cgi-bin/preview_program.php on line 16
+[06-Mar-2017 12:39:45 America/Denver] PHP Notice:  Undefined variable: i in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:39:45 America/Denver] PHP Notice:  Undefined index:  in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:40:22 America/Denver] PHP Notice:  Undefined variable: i in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:40:22 America/Denver] PHP Notice:  Undefined index:  in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:40:45 America/Denver] PHP Notice:  Undefined variable: i in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:40:45 America/Denver] PHP Notice:  Undefined index:  in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:41:00 America/Denver] PHP Notice:  Undefined variable: i in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:41:00 America/Denver] PHP Notice:  Undefined index:  in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:41:17 America/Denver] PHP Notice:  Undefined variable: i in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:41:17 America/Denver] PHP Notice:  Undefined index:  in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:41:43 America/Denver] PHP Notice:  Undefined variable: i in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:41:43 America/Denver] PHP Notice:  Undefined index:  in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:42:01 America/Denver] PHP Notice:  Undefined variable: i in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:42:01 America/Denver] PHP Notice:  Undefined index:  in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:42:18 America/Denver] PHP Notice:  Undefined variable: i in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:42:18 America/Denver] PHP Notice:  Undefined index:  in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:42:40 America/Denver] PHP Notice:  Undefined variable: i in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:42:40 America/Denver] PHP Notice:  Undefined index:  in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:59:06 America/Denver] PHP Notice:  Undefined variable: i in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 12:59:06 America/Denver] PHP Notice:  Undefined index:  in /home2/messyxin/public_html/nycos/cgi-bin/edit_orchestra.php on line 27
+[06-Mar-2017 13:01:38 America/Denver] PHP Notice:  Undefined index: order in /home2/messyxin/public_html/nycos/cgi-bin/create_program.php on line 17
+[07-Mar-2017 14:36:45 America/Denver] PHP Notice:  Undefined index: time in /home2/messyxin/public_html/nycos/cgi-bin/preview_program.php on line 16
+[08-Mar-2017 10:25:32 America/Denver] PHP Notice:  Undefined index: time in /home2/messyxin/public_html/nycos/cgi-bin/preview_program.php on line 16
+[09-Mar-2017 19:00:44 America/Denver] PHP Notice:  Undefined index: order in /home2/messyxin/public_html/nycos/cgi-bin/create_program.php on line 17
+[23-Mar-2017 22:21:34 America/Denver] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'messyxin_nycos'@'localhost' (using password: YES) in /home1/messyxin/public_html/nycos/cgi-bin/list_performance.php on line 8
+[23-Mar-2017 22:21:49 America/Denver] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'messyxin_nycos'@'localhost' (using password: YES) in /home1/messyxin/public_html/nycos/cgi-bin/list_performance.php on line 8
+[24-Mar-2017 09:14:26 America/Denver] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'messyxin_nycos'@'localhost' (using password: YES) in /home1/messyxin/public_html/nycos/cgi-bin/list_performance.php on line 8
+[24-Mar-2017 09:18:17 America/Denver] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'messyxin_nycos'@'localhost' (using password: YES) in /home1/messyxin/public_html/nycos/cgi-bin/list_performance.php on line 8
+[24-Mar-2017 09:19:42 America/Denver] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'messyxin_nycos'@'localhost' (using password: YES) in /home1/messyxin/public_html/nycos/cgi-bin/list_performance.php on line 8
+[24-Mar-2017 09:45:31 America/Denver] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'messyxin_nycos'@'localhost' (using password: YES) in /home1/messyxin/public_html/nycos/cgi-bin/list_performance.php on line 8

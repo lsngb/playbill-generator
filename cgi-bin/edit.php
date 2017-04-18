@@ -244,10 +244,10 @@ foreach ($Person_order as $m) {
 	$Program_CN=$Program_CN."<p><span style='font-weight:bold;'>".$Person_name_CN[(string)$m]."</span>，".$Person_info_CN[(string)$m]."</p>";
 
 	if ($Person_gender[(string)$m]=="F") {
-		$Program_EN=$Program_EN."<p style='font-family: Times New Roman'><span style='font-weight:bold;'>Ms. ".$Person_name_EN[(string)$m]."</span> ".$Person_info_EN[(string)$m]."</p>";
+		$Program_CN=$Program_CN."<p style='font-family: Times New Roman'><span style='font-weight:bold;'>Ms. ".$Person_name_EN[(string)$m]."</span> ".$Person_info_EN[(string)$m]."</p>";
 	}
 	else{
-		$Program_EN=$Program_EN."<p style='font-family: Times New Roman' ><span style='font-weight:bold;'>Mr. ".$Person_name_EN[(string)$m]."</span> ".$Person_info_EN[(string)$m]."</p>";
+		$Program_CN=$Program_CN."<p style='font-family: Times New Roman' ><span style='font-weight:bold;'>Mr. ".$Person_name_EN[(string)$m]."</span> ".$Person_info_EN[(string)$m]."</p>";
 	}
 }
 $Program_CN=str_replace("＇","'",$Program_CN);

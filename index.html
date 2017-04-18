@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0"> 
 
 <head>
-	<title>NYCOS-节目单</title>
+	<title>NYCOS Tools</title>
 <style>
 body{
-	background: #faeab0;
+	max-width:800px;
+	background: #cccccc;
+	font-family:宋体 sans-serif;
+	font-size: 22px;
+}
+h2{
+	margin-left: 280px;
+	font-size: 27px;
+}
+table{
 	font-weight: bold;
+	margin: 45px 280px;
+	line-height: 50px;
+	vertical-align: middle;
+	font-size: 22px;
+}
+#rusheng{
+	padding-left: 10px;
+	width: 240px;
+	height: 50px;
+	background: #d6f0da;
+}
+#jiantuan{
+	padding-left: 10px;
+	width: 240px;
+	background: #d6ecf0;
+	margin-bottom: -22px;
+}
+#jiantuan-content{
+	height: 70px;
+	line-height:30px;
+	margin-top:-30px;
+	background: #d6ecf0;
+}
+
+#kunqu_tools{
+	padding-left: 10px;
+	width: 240px;
+	height: 50px;
+	background: #f0d6ec;
+}
+
+#about{
+	padding-left: 10px;
+	width: 240px;
+	height: 50px;
+	background: #f5e7e4;
+}
+#about-content{
+	height: 70px;
+	line-height:30px;
+	margin-top:-30px;
+	background: #f5e7e4;
 }
 
 a:link, a:visited{
@@ -15,38 +67,82 @@ a:link, a:visited{
 }
 a:hover{
 	text-decoration:none;
-	font-size: 28px;
+	font-size: 23px;
+}
+a.sub:hover{
+	text-decoration:none;
+	font-size: 21px;
 }
 
+li {
+	margin-left: 20px;
+	font-size: 20px;
+	font-weight: normal;
+}
+
+@media only screen and (max-device-width: 650px) {
+	h2{
+		margin: auto 0;
+		position: fixed;
+    	top: 20px;
+    	left: 25px;
+	}
+	table{
+		position: fixed;
+    	top: 50px;
+    	left: -20px;
+		visibility:visible;
+	}
 }
 </style>
 </head>
 
 <body>
-<h1><img src="background.gif" width="400"></h1>
-<table>
+<h2>NYCOS Tools</h2>
+<!-- <table>
 	<tr>
 		<td>
-			<div id="rusheng">
-			<a href="rusheng/shici">入　声</a></div>
-		</td>
-		<td>
-			<div id ="jiantuan">
-			<a href="jiantuan">尖　团</a><div>
+			<div id="rusheng"><span style="font-size:26px;">•</span><a href="rusheng/shici/">　入声章第一</a></div>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<div id="kunqu_tools">
-			<a href="kunqu_tools/fanliji">工　具</a></div>
+			<div id ="jiantuan" ><span style="font-size:16px;">▼</span>　尖团章第二</div>
+			<div id="jiantuan-content">
+				<ul>
+				    <li><a class="sub" href="jiantuan/jingju/">小测</a></li>
+				    <li><a class="sub" href="jiantuan/query-jian/">查询</a></li>
+			    </ul>
+			</div>
 		</td>
+	</tr>
+	<tr>
 		<td>
-			<div id ="about">
-			<a href="rusheng/shici">关　于</a><div>
+			<div id="kunqu_tools"><span style="font-size:26px;">•</span><a href="kunqu_tools/fanliji/">　昆曲工具章第三</a></div>
+		</td>
+		
+	</tr>
+	<tr>
+		<td>
+			<div id ="about"><span style="font-size:16px;">▼</span>　发昏章第四</div>
+			<div id="about-content">
+				<ul>
+				    <li><a class="sub" href="http://www.blog.lsngb.com/">博客</a></li>
+				    <li><a class="sub" href="about.html">关于我</a></li>
+			    </ul>
+			</div>
 		</td>
 	</tr>
 
+</table> -->
+<table>
+<tr>
+	<td>
+<a href="/playbill">節目單生成器</a>
+</td>
+</tr>
 </table>
+
 
 </body>
 

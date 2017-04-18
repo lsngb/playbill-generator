@@ -155,7 +155,7 @@ player_id[0]=0;
 var temp="";
 
 var del_instrument=function(){
-	var instrument=(document.getElementById("instrument"+instrument_num+"_Name").value).replace(/'/g, "＇").replace(/"/g, "＂");
+	var instrument=(document.getElementById("instrument"+instrument_id+"_Name").value).replace(/'/g, "＇").replace(/"/g, "＂");
 	var xhttp;
 	if (window.XMLHttpRequest) {
 	    // code for modern browsers
@@ -212,8 +212,8 @@ var send_back=function(){
 	var Player_Nickname=new Array();
 	var Player_Name=new Array();
 	for(var i=0;i<instrument_id+1;i++){
-		Instrument_Name_CN.push(document.getElementById("instrument"+i+"_Name").value);
-		Instrument_Name.push(document.getElementById("instrument"+i+"_EN_name").value);
+		Instrument_Name_CN.push((document.getElementById("instrument"+i+"_Name").value).replace(/'/g, "＇").replace(/"/g, "＂"));
+		Instrument_Name.push((document.getElementById("instrument"+i+"_EN_name").value).replace(/'/g, "＇").replace(/"/g, "＂"));
 
 		Player_Name_CN[i]=new Array();
 		Player_Nickname[i]=new Array();
@@ -226,7 +226,7 @@ var send_back=function(){
 			temp = str.split('@');
 			Player_Name_CN[i].push(temp[0]);
 			Player_Nickname[i].push(temp[1]);
-			Player_Name[i].push(document.getElementById("i"+i+"_player"+j+"_EN_name").value);
+			Player_Name[i].push((document.getElementById("i"+i+"_player"+j+"_EN_name").value).replace(/'/g, "＇").replace(/"/g, "＂"));
 		}
 	}
 

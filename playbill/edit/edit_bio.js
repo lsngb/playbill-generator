@@ -174,7 +174,7 @@ var send_back=function(sender){
 			temp = str.split('@');
 			Performer_Name_CN[i].push(temp[0]);
 			Performer_Nickname[i].push(temp[1]);
-			Performer_Name[i].push(document.getElementById("r"+i+"_performer"+j+"_EN_name").value);
+			Performer_Name[i].push((document.getElementById("r"+i+"_performer"+j+"_EN_name").value).replace(/'/g, "＇").replace(/"/g, "＂"));
 
 			if (document.getElementById("r"+i+"_performer"+j+"_M").checked == true) {str="M";}
 			else{str="F";}
@@ -184,12 +184,12 @@ var send_back=function(sender){
 			else{str="N";}
 			NYCOS[i].push(str);
 
-			Youth[i].push(document.getElementById("r"+i+"_performer"+j+"_Youth").value);
-			Bios_CN[i].push(document.getElementById("r"+i+"_performer"+j+"_Bio").value);
-			Bios[i].push(document.getElementById("r"+i+"_performer"+j+"_EN_bio").value);
-			Tel[i].push(document.getElementById("r"+i+"_performer"+j+"_Tel").value);
-			Email[i].push(document.getElementById("r"+i+"_performer"+j+"_Email").value);
-			Remark[i].push(document.getElementById("r"+i+"_performer"+j+"_Remark").value);
+			Youth[i].push((document.getElementById("r"+i+"_performer"+j+"_Youth").value).replace(/'/g, "＇").replace(/"/g, "＂"));
+			Bios_CN[i].push((document.getElementById("r"+i+"_performer"+j+"_Bio").value).replace(/'/g, "＇").replace(/"/g, "＂"));
+			Bios[i].push((document.getElementById("r"+i+"_performer"+j+"_EN_bio").value).replace(/'/g, "＇").replace(/"/g, "＂"));
+			Tel[i].push((document.getElementById("r"+i+"_performer"+j+"_Tel").value).replace(/'/g, "＇").replace(/"/g, "＂"));
+			Email[i].push((document.getElementById("r"+i+"_performer"+j+"_Email").value).replace(/'/g, "＇").replace(/"/g, "＂"));
+			Remark[i].push((document.getElementById("r"+i+"_performer"+j+"_Remark").value).replace(/'/g, "＇").replace(/"/g, "＂"));
 		}
 	}
 

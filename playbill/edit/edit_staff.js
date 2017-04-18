@@ -236,7 +236,7 @@ var send_back=function(){
 			temp = str.split('@');
 			staff_Name_CN[i].push(temp[0]);
 			staff_Nickname[i].push(temp[1]);
-			staff_Name[i].push(document.getElementById("f"+i+"_staff"+j+"_EN_name").value);
+			staff_Name[i].push((document.getElementById("f"+i+"_staff"+j+"_EN_name").value).replace(/'/g, "＇").replace(/"/g, "＂"));
 		}
 	}
 

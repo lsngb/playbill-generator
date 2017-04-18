@@ -2,7 +2,7 @@ var string="&"+window.location.search.substring(1);
 var array=string.split('&'); 
 var time=array[1]+' '+array[2];
 
-document.getElementById("title").innerHTML="添加劇目"+(program_num+1);
+document.getElementById("title").innerHTML="添加或修改劇目";
 var check=function(){
 	var xhttp;
 	if (window.XMLHttpRequest) {

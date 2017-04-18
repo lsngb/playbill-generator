@@ -471,10 +471,10 @@ var send_back=function(sender){
 
 	//# of roles
 	for(var i=0;i<role_id+1;i++){
-		Role_Name_CN.push(document.getElementById("role"+i+"_Role").value);
-		Role_Name.push(document.getElementById("role"+i+"_EN_role").value);
-		Hangdang.push(document.getElementById("role"+i+"_hangdang").value);
-		Role_type.push(document.getElementById("role"+i+"_Role_type").value);
+		Role_Name_CN.push((document.getElementById("role"+i+"_Role").value).replace(/'/g, "＇").replace(/"/g, "＂"));
+		Role_Name.push((document.getElementById("role"+i+"_EN_role").value).replace(/'/g, "＇").replace(/"/g, "＂"));
+		Hangdang.push((document.getElementById("role"+i+"_hangdang").value).replace(/'/g, "＇").replace(/"/g, "＂"));
+		Role_type.push((document.getElementById("role"+i+"_Role_type").value).replace(/'/g, "＇").replace(/"/g, "＂"));
 
 		Performer_Name_CN[i]=new Array();
 		Performer_Nickname[i]=new Array();
@@ -519,6 +519,7 @@ var send_back=function(sender){
 			method: "POST",
 			url: "/cgi-bin/create_program.php",
 			data: {
+				program_id:program_num,
 				role_id:role_id,
 				performer_id:performer_id,
 				CN_Name:CN_Name,

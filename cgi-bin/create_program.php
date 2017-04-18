@@ -17,8 +17,10 @@ if ($conn->connect_error) {
 $_SESSION["order"]++;
 
 $time="'".$_SESSION["time"]."'";
+if (array_key_exists('program_id', $_REQUEST)) {
+	$program_id=(int)$_REQUEST["program_id"];
+}
 
-$program_id=(int)$_REQUEST["program_id"];
 $role_id=(int)$_REQUEST["role_id"];
 $performer_id=$_REQUEST["performer_id"];
 $Name_CN="'".$_REQUEST["CN_Name"]."'";
@@ -53,10 +55,12 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
 	$sql_location="UPDATE `Program` SET `Name`=$Name,`Part`=$Part,`Synopsis_CN`=$Synopsis_CN ,`Synopsis`=$Synopsis WHERE Part_CN=$Part_CN and Name_CN=$Name_CN";
+	$conn->query("SET NAMES utf8"); 
 	$conn->query($sql_location);
 
 } else {
 	$sql_location="INSERT INTO `Program`(`Name`, `Name_CN`, `Part`, `Part_CN`, `Synopsis`, `Synopsis_CN`, `Program_type`) VALUES ($Name,$Name_CN,$Part,$Part_CN,$Synopsis,$Synopsis_CN,$Program_type)";
+	$conn->query("SET NAMES utf8"); 
 	$conn->query($sql_location);
 }
 
@@ -81,7 +85,13 @@ if ($result->num_rows > 0) {
 
 } else {
 	//insert into Program_performed
-	$sql="INSERT INTO `Program_performed`(`Date_time`, `PID`,`Order`) VALUES ($time,$temp,$program_id*10)";
+	if (array_key_exists('program_id', $_REQUEST)) {
+		$sql="INSERT INTO `Program_performed`(`Date_time`, `PID`,`Order`) VALUES ($time,$temp,$program_id*10)";
+	}
+	else{
+		$sql="INSERT INTO `Program_performed`(`Date_time`, `PID`,`Order`) VALUES ($time,$temp,0)";
+	}
+	
 	$conn->query("SET NAMES utf8"); 
 	$result = $conn->query($sql);
 }
